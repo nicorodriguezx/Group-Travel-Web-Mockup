@@ -1359,6 +1359,56 @@ section {
     font-size: var(--font-size-base);
 }
 
+/* Mobile card layout for dates table */
+.dates-table-mobile {
+    display: none;
+}
+
+.dates-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow);
+}
+
+.dates-card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.dates-card-row:last-child {
+    border-bottom: none;
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+
+.dates-card-label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 100px;
+}
+
+.dates-card-value {
+    color: var(--text-medium);
+    font-size: var(--font-size-base);
+    text-align: right;
+    flex: 1;
+}
+
+.dates-card-action {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 2px solid var(--border-color);
+}
+
 .pricing-note {
     margin-top: var(--spacing-lg);
     color: var(--text-medium);
@@ -1873,11 +1923,20 @@ section {
     }
     
     .tour-expand-btn {
-        align-self: flex-end;
+        align-self: flex-start;
         margin-top: 1rem;
         margin-left: 0;
-        width: 100%;
-        justify-content: space-between;
+        width: auto;
+        min-width: 140px;
+        justify-content: center;
+    }
+    
+    .tour-expand-btn::before {
+        content: 'Details';
+    }
+    
+    .tour-card-expandable.expanded .tour-expand-btn::before {
+        content: 'Hide';
     }
 
     .inclusions-grid {
@@ -1903,6 +1962,15 @@ section {
     .day-number {
         width: 50px;
         height: 50px;
+    }
+    
+    /* Show mobile cards, hide desktop table */
+    .dates-table {
+        display: none;
+    }
+    
+    .dates-table-mobile {
+        display: block;
     }
 }
 
@@ -1934,6 +2002,15 @@ section {
 
     .tab-btn {
         text-align: left;
+    }
+    
+    /* Ensure mobile cards are shown on small screens too */
+    .dates-table {
+        display: none;
+    }
+    
+    .dates-table-mobile {
+        display: block;
     }
 }
 
